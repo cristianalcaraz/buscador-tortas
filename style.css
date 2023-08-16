@@ -1,0 +1,10 @@
+*{
+    background-color: chocolate;
+    margin: 0;
+    width: 0;
+}
+.opciones{
+    margin: auto;
+    align-items: center;
+    background-color: burlywood;
+}
