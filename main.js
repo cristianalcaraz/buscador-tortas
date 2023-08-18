@@ -25,7 +25,7 @@ variedades.push(new gustos("Torta helada", 2000));
 //pedimos el nombre de la torta  a consultar
 let nombre = prompt("Ingrese el nombre de la torta  consultar. Escriba ESC para salir");
 
-while (nombre != "ESC") {
+while (nombre != "ESC" && nombre !== null) {
     //declaramos la variable que contendrá variedades en caso de encontrarlo
     let gusto;
 
@@ -75,5 +75,3 @@ filtrados.forEach((item) => {
    `;
    alert(mensaje);
 });
-
-
