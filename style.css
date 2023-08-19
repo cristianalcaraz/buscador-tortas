@@ -2,31 +2,49 @@
 
     margin: 0;
     width: 0;
+    background-color: darkseagreen;
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 
 h1 {
+    width: 455px;
     text-align: center;
     margin: auto;
-    border: auto;
+    margin-left: 350px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: blueviolet;
-    margin-right: 45px;
+    font-size: 1cm;
+
 }
 
 h2 {
+
+    width: 455px;
     text-align: center;
     margin: auto;
-    border: auto;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: blueviolet;
+    margin-left: 350px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1cm;
 }
 
 input {
     display: block;
-    width: 800px;
+    justify-content: center;
+    width: 500px;
     margin: auto;
+    margin-left: 350px;
     background-color: beige;
     padding: 10px;
     font-size: 18px;
+}
+
+.opciones {
+
+    width: 455px;
+    text-align: center;
+    margin: auto;
+    margin-left: 350px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1cm;
 }
