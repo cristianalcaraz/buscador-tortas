@@ -1,5 +1,3 @@
-//funcion
-//import { tortasDisponiblesDisponibles } from "./main.js"
 
 JSON.parse(sessionStorage.getItem("carrito")) === null && sessionStorage.setItem("carrito", JSON.stringify([]))
 
@@ -56,8 +54,12 @@ export const comprarTortas = (idTortas) => {
     }
     carrito = JSON.parse(sessionStorage.getItem("carrito"))
 
-    alert(`usted compro la Torta ${nombre}`)
-
+    Swal.fire({
+        icon: 'success',
+        title:  `Usted compro ${nombre}!`,
+      })
+    
+    
 }
 
 const dibujarCarrito = () => {
@@ -97,7 +99,10 @@ const dibujarCarrito = () => {
 }
 
 function finalizarCompra() {
-    alert("Muchas gracias por su compra")
+    Swal.fire({
+        icon: 'success',
+        title: 'Muchas gracias por su compra!',
+      })
     footCarrito.innerHTML = "<h3>No hay producto en carrito</h3>"
     listaCarrito.innerHTML = ""
     sessionStorage.setItem("carrito", JSON.stringify([]))
