@@ -57,8 +57,9 @@ export const comprarTortas = (idTortas) => {
     Swal.fire({
         icon: 'success',
         title:  `Usted compro ${nombre}!`,
-      })
+    })
     
+      dibujarCarrito()
     
 }
 
