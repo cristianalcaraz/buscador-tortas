@@ -1,11 +1,9 @@
 
 JSON.parse(sessionStorage.getItem("carrito")) === null && sessionStorage.setItem("carrito", JSON.stringify([]))
 
-
 document.addEventListener("DOMContentLoaded", () => {
     dibujarCarrito()
 })
-
 
 let carrito = JSON.parse(sessionStorage.getItem("carrito"))
 const listaCarrito = document.getElementById("items")
@@ -13,7 +11,6 @@ const footCarrito = document.getElementById("totales")
 const btnCarrito = document.getElementById("btnCarrito")
 
 const carritoTable = document.getElementById("carrito")
-
 
 btnCarrito.addEventListener("click", () => {
     if (carritoTable.style.display === "block") {
@@ -25,6 +22,17 @@ btnCarrito.addEventListener("click", () => {
 
 })
 
+// Declaracion
+class tortasCarritoClass {
+    constructor(id, nombre, precio, imagen, cantidad) {
+      this.id = id;
+      this.nombre = nombre;
+      this.precio = precio;
+      this.imagen = imagen;
+      this.cantidad = cantidad;
+    }
+}
+
 export const comprarTortas = (idTortas) => {
 
     const tortas = tortasDisponibles.find((tortas) => tortas.id === idTortas)
@@ -34,15 +42,7 @@ export const comprarTortas = (idTortas) => {
     const tortasCarrito = carrito.find((tortas) => tortas.id === idTortas)
 
     if (tortasCarrito === undefined) {
-        const nuevoTortasCarrito = {
-            id: id,
-            nombre: nombre,
-            precio: precio,
-            imagen: imagen,
-            cantidad: 1
-        }
-
-        carrito.push(nuevoTortasCarrito)
+        carrito.push(new tortasCarritoClass(id, nombre, precio, imagen, 1))
         sessionStorage.setItem("carrito", JSON.stringify(carrito))
     } else {
         const indexTortasCarrito = carrito.findIndex((tortas) => tortas.id === idTortas)
@@ -56,7 +56,7 @@ export const comprarTortas = (idTortas) => {
 
     Swal.fire({
         icon: 'success',
-        title: `Usted compro ${nombre}!`,
+        title: `Usted agrego al carrito ${nombre}!`,
     })
 
     dibujarCarrito()
@@ -100,17 +100,20 @@ const dibujarCarrito = () => {
 }
 
 function finalizarCompra() {
-    Swal.fire({
-        icon: 'success',
-        title: 'Muchas gracias por su compra!',
-    })
+    
     footCarrito.innerHTML = "<h3>No hay producto en carrito</h3>"
     listaCarrito.innerHTML = ""
-    location.reload();
     sessionStorage.setItem("carrito", JSON.stringify([]))
+    Swal.fire({
+        icon: 'success',
+        title: `Muchas gracias por su compra!`,
+    }).then(function() {
+        location.reload()
+    });
+    
 }
 
-//array
+// footer carrito
 const dibujarFooter = () => {
 
     if (carrito.length > 0) {
@@ -135,8 +138,6 @@ const dibujarFooter = () => {
     }
 
 }
-
-
 
 //funcion
 const generarTotales = () => {

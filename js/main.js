@@ -1,5 +1,4 @@
 //buscador de tortas
-
 import { comprarTortas } from "./carrito.js"
 
 const divTortas = document.getElementById("tortas")
@@ -30,7 +29,7 @@ export const generarCardsTortas = (tortas) => {
               <h5 class="card-title" id="${id}">${nombre}</h5>
               <p class="card-text">Gusto: ${gusto}</p>
               <p class="card-text"><small class="text-muted">Precio: <b>$${precio}</b></small></p>
-              <button id="btn${id}" class="btn btn-primary">Comprar</button>
+              <button id="btn${id}" class="btn btn-primary">Agregar al carrito</button>
             </div>
           </div>
         </div>
